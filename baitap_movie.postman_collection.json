@@ -1,0 +1,947 @@
+{
+	"info": {
+		"_postman_id": "f9c36d14-46c7-4a31-80b7-d2ddc4f3dfe4",
+		"name": "baitap_movie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23736073"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tai_khoan\":\"trancongthi\",\r\n    \"ho_ten\":\"TranCongThi\",\r\n    \"email\":\"trancongthi@gmail.com\",\r\n    \"so_dt\":\"0349842707\",\r\n    \"mat_khau\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/user/signUp",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"signUp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "$2b$10$VxvYjpnoeVG8hH/LIATWou8mI3wqFglIlShvCxHYhJdtMwevkz.ee",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"khoine999@gmail.com\",\r\n    \"mat_khau\":\"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/user/signIn",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"signIn"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quản Lí Người Dùng",
+			"item": [
+				{
+					"name": "Lấy thông tin tài khoản",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tai_khoan\":\"khoi124\",\r\n    \"mat_khau\":\"abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerUser/getInfoUser",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerUser",
+								"getInfoUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy danh sách người dùng phân trang",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"offset\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerUser/getUserDevidePage",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerUser",
+								"getUserDevidePage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy danh sách toàn bộ người dùng",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/managerUser/getFullInfoUser",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerUser",
+								"getFullInfoUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy thông tin người dùng theo tên",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ho_ten\":\"t\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerUser/getNameUser",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerUser",
+								"getNameUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy thông tin loại dùng người dùng",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/managerUser/getListInfoUser",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerUser",
+								"getListInfoUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Thêm người dùng",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tai_khoan\":\"trancongthi\",\r\n    \"ho_ten\":\"TranCongThi\",\r\n    \"email\":\"trancongthi@gmail.com\",\r\n    \"so_dt\":\"0349842707\",\r\n    \"mat_khau\":\"1234\",\r\n    \"loai_nguoi_dung\":\"quanTri\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerUser/addUser",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerUser",
+								"addUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Chỉnh sửa thông tin người dùng",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tai_khoan\":\"thi\",\r\n    \"ho_ten\":\"thi\",\r\n    \"email\":\"thi@gmail.com\",\r\n    \"so_dt\":\"0349842707\",\r\n    \"mat_khau\":\"1234\",\r\n    \"loai_nguoi_dung\":\"quản lí\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerUser/updateUser/5",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerUser",
+								"updateUser",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Xóa người dùng",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/managerUser/deleteUser/12",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerUser",
+								"deleteUser",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quản Lí Phim",
+			"item": [
+				{
+					"name": "Lấy danh sách Banner",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tai_khoan\":\"khoi124\",\r\n    \"mat_khau\":\"abc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerFilm/getBanner",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerFilm",
+								"getBanner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy danh sách phim phân trang",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"offset\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerFilm/getFilmDevidePage",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerFilm",
+								"getFilmDevidePage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy danh sách Phim",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerFilm/getFilm",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerFilm",
+								"getFilm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy thông tin film theo tên",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ten_phim\":\"cap\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerFilm/getSearchNameFilm",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerFilm",
+								"getSearchNameFilm"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy thông tin film theo ngày",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ngay_khoi_chieu\":\"2023-01-04\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerFilm/getSearchDateFilm",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerFilm",
+								"getSearchDateFilm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Thêm phim",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"ten_phim\":\"Wednesday Addams\",\r\n   \"trailer\":\"https://www.youtube.com/watch?v=Di310WS8zLk\",\r\n   \"hinh_anh\":\"https://movienew.cybersoft.edu.vn/hinhanh/wednesday_gp01.jpg\",\r\n   \"mo_ta\":\"hay\",\r\n   \"ngay_khoi_chieu\":\"2012-01-22\",\r\n   \"danh_gia\":\"9\",\r\n   \"hot\":\"true\",\r\n   \"dang_chieu\":\"true\",\r\n   \"sap_chieu\":\"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerFilm/addFilm",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerFilm",
+								"addFilm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cập nhật film",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"ten_phim\":\"mua tuyet\",\r\n   \"trailer\":\"https://youtu.be/Q73UhUTs6y0\",\r\n   \"hinh_anh\":\"https://movienew.cybersoft.edu.vn/hinhanh/wednesday_gp01.jpg\",\r\n   \"mo_ta\":\"hay\",\r\n   \"ngay_khoi_chieu\":\"20221-01-22\",\r\n   \"danh_gia\":\"7\",\r\n   \"hot\":\"true\",\r\n   \"dang_chieu\":\"true\",\r\n   \"sap_chieu\":\"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerFilm/updateFilm/4",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerFilm",
+								"updateFilm",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quản Lí Rạp",
+			"item": [
+				{
+					"name": "Lấy thông tin hệ thống rạp  phim",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/managerMovieTheaterRoute/getInfoTheater",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerMovieTheaterRoute",
+								"getInfoTheater"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy thông tin cụm rạp theo mã rạp phim",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerMovieTheaterRoute/getInfoTheaterCluster/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerMovieTheaterRoute",
+								"getInfoTheaterCluster",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy thông tin lịch chiếu phim theo mã rạp",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerMovieTheaterRoute/getInfoShowTimeMovie/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerMovieTheaterRoute",
+								"getInfoShowTimeMovie",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy thông tin lịch chiếu theo mã phim",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerMovieTheaterRoute/getInfoShowTimeMovieOfCodeFilm/1",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerMovieTheaterRoute",
+								"getInfoShowTimeMovieOfCodeFilm",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quản Lí Đặt Vé",
+			"item": [
+				{
+					"name": "Lấy thông tin danh sách phòng vé",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerBookingTicketRoute/getInfoTicketRoom/2",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerBookingTicketRoute",
+								"getInfoTicketRoom",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tạo lịch chiếu phim",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"ma_rap\":4,\r\n     \"ma_phim\":2,\r\n     \"ngay_gio_chieu\":\"2023-02-22\",\r\n     \"gia_ve\":\"541262\",\r\n     \"ma_ghe\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerBookingTicketRoute/addShowTimeMovie",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerBookingTicketRoute",
+								"addShowTimeMovie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đặt vé",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"id\":11,\r\n     \"ma_lich_chieu\":6,\r\n     \"ma_ghe\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/managerBookingTicketRoute/addBookingTicketMovie",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"managerBookingTicketRoute",
+								"addBookingTicketMovie"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		},
+		{
+			"key": "authorization",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImNvbmd0aGkiLCJpYXQiOjE1MTYyMzkwMjJ9.7fK0oWzE7Cskj53erzSHPo2xYxcfTJyjBT6CduXe8ys",
+			"type": "string"
+		}
+	]
+}
